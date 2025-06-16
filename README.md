@@ -70,3 +70,12 @@ Pour la base de donnée :
 Le fichier conf/conf.inc.php est un example de comment il doit être écrit. Il faut recréer le fichier sur les machines, sans les ajouter au github, les codes seront sur le Google Docs, ne faites donc plus de git add . mais spécifiez vos ajouts
 
 Les informations concernant la création de la base de donnée viendront lors de la création de cette dernière.
+
+Pour le VPS : 
+
+Si jamais vous voulez publier maintenant (ce qui est inutile, on a besoin que d'un site hébergé pour l'instant), Changez bien les droits :
+
+```
+find /var/www/sae202 -type d -exec chmod 750 {} \; #Les dossier seront en 750
+find /var/www/sae202 -type f -exec chmod 640 {} \; #Les fichiers, qui ne sont pas executables seront en 640 pour plus de sécurité
+```
