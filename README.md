@@ -1,4 +1,6 @@
-Pour le docker :
+Pour docker :
+
+
 /etc/apache2/sites-available/000-sae202.conf:
 ```
  <VirtualHost *:80>
@@ -17,7 +19,8 @@ a2ensite 000-sae202.conf
 service apache2 reload
 ```
 
-Pour Github : 
+Pour Github :
+
 Pour récupérer les fichiers (la première fois uniquement): 
 ```
 git clone git@github.com:SamanthaPPW/sae202.git 
@@ -60,3 +63,9 @@ git push -u origin main #Si vous voulez, à partir du 2e push, vous pouvez juste
 ```
 
 En clair, n'oubliez pas de pull des commits, au cas-où quelqu'un modifie avant vous puis ajoutez votre commit :)
+
+Pour la base de donnée :
+
+Le fichier conf/conf.inc.php est un example de comment il doit être écrit. Il faut recréer le fichier sur les machines, sans les ajouter au github, les codes seront sur le Google Docs, ne faites donc plus de git add . mais spécifiez vos ajouts
+
+Les informations concernant la création de la base de donnée viendront lors de la création de cette dernière.
