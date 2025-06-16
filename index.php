@@ -1,1 +1,3 @@
-<h1>SAE202  -STUDIO VERMEIL</h1>
+<?php 
+require_once('conf/routeur.php');
+?>
