@@ -1,9 +1,16 @@
 <?php
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+<<<<<<< HEAD
 $item = explode('/', $path);
 
 $controller = isset($item[1]) && $item[1] !== '' ? $item[1] : 'accueil';
 $action = isset($item[2]) && $item[2] !== '' ? $item[2] : 'index';
+=======
+$items = explode('/', $path);
+
+$controller = isset($items[1]) && $items[1] !== '' ? $items[1] : 'accueil';
+$action = isset($items[2]) && $items[2] !== '' ? $items[2] : 'index';
+>>>>>>> refs/remotes/origin/main
 
 $controllerFile = 'controller/' . $controller . '_controller.php';
 
