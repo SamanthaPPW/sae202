@@ -1,0 +1,28 @@
+@media all and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+body {
+  margin :0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1% 0;
+  height: 32px;
+  background-color: brown;
+  color: white;
+}
+
+.contenu{
+  margin-top: 120px;
+  margin-bottom: 0;
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 98%;
+}
