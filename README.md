@@ -2,7 +2,7 @@ Pour le docker :
 /etc/apache2/sites-available/000-sae202.conf:
 ```
  <VirtualHost *:80>
-        ServerName sae202.mmi-troyes.fr #le meme pour tous, ajouter :8215
+        ServerName sae202.mmi-troyes.fr #le meme pour tous, dans l'URL sur votre navigateur, ajoutez :8215
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/sae202
 
@@ -16,3 +16,47 @@ Puis ne pas oublier de l'activer et de relancer apache
 a2ensite 000-sae202.conf
 service apache2 reload
 ```
+
+Pour Github : 
+Pour récupérer les fichiers (la première fois uniquement): 
+```
+git clone git@github.com:SamanthaPPW/sae202.git 
+``` 
+le lien est obtenable dans Code > SSH dans le github 
+
+Si il y a une erreur, regardez la avec 
+```
+git status
+```
+(Si la branche est en retard, il faut récupérer les fichiers, voir plus bas,
+Si elle est en avance, push un commit)
+
+Pour voir les derniers commits :
+```
+git log --graph --all --oneline
+```
+
+Pour récupérer les fichiers, à faire avant chaque ajout au cas-où quelqu'un a modifié : 
+```
+git fetch #Récuperer les infos des nouveaux commits
+git merge #Récuperer les commits du fetch dans nos dossiers locaux
+``` 
+OU
+```
+git pull #Fais les deux en un maison peut ne pas comprendre les potentielles erreurs si il y en a
+```
+
+!!! NE PAS FAIRE D'AUTRES COMMITS SI IL Y A UN CONFLIT, IL FAUT REGLER LES SOUCIS AVANT!!!
+
+Si il y a un conflit, github va modifier le fichier pour avoir les deux versions dedans
+
+Pour ajouter un commit : 
+```
+git add . #Le point sert pour tout sélectionner, si vous voulez faire un choix précis remplacez le point, ajoute les fichiers dans le commit
+
+git commit -m "Commentaire" #Nomme le commit avec un commentaire de votre choix et le place dans la branche main avec -m, mettez toujours des commentaires svp
+
+git push -u origin main #Si vous voulez, à partir du 2e push, vous pouvez juste faire git push
+```
+
+En clair, n'oubliez pas de pull des commits, au cas-où quelqu'un modifie avant vous puis ajoutez votre commit :)
