@@ -4,7 +4,7 @@ Pour docker :
 /etc/apache2/sites-available/000-sae202.conf:
 ```
  <VirtualHost *:80>
-        ServerName sae202.mmi-troyes.fr #le meme pour tous, dans l'URL sur votre navigateur, ajoutez :8215
+        ServerName sae202.mmi-troyes.fr 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/sae202
 
@@ -23,6 +23,7 @@ Pour Github :
 
 Pour récupérer les fichiers (la première fois uniquement): 
 ```
+git init
 git clone git@github.com:SamanthaPPW/sae202.git 
 ``` 
 le lien est obtenable dans Code > SSH dans le github 
@@ -46,7 +47,7 @@ git merge #Récuperer les commits du fetch dans nos dossiers locaux
 ``` 
 OU
 ```
-git pull #Fais les deux en un maison peut ne pas comprendre les potentielles erreurs si il y en a
+git pull #Fais les deux en un mais on peut ne pas comprendre les potentielles erreurs si il y en a
 ```
 
 !!! NE PAS FAIRE D'AUTRES COMMITS SI IL Y A UN CONFLIT, IL FAUT REGLER LES SOUCIS AVANT!!!
