@@ -1,18 +1,4 @@
-<?php session_start(); 
-
-if (isset($_GET['debug_login'])) {
-  $_SESSION['user_nom'] = "toto";
-  header("Location: /"); 
-  exit;
-}
-
-if (isset($_GET['debug_logout'])) {
-  session_unset();
-  session_destroy();
-  header("Location: /");
-  exit;
-}
-?>
+<?php session_start(); ?>
 
 <header>
   <img src="/view/img/logo.png" alt="Logo de l'event" id="logo">
@@ -27,16 +13,12 @@ if (isset($_GET['debug_logout'])) {
       <a href="/messagerie">Messagerie</a>
     <?php endif; ?>
 
-    <?php if (isset($_SESSION['user_nom'])): ?>
-      <div class="connexion">
-        Bienvenue <?= htmlspecialchars($_SESSION['user_nom']) ?>
-        <a href="?debug_logout">Déconnexion</a>
-      </div>
-    <?php else: ?>
-      <div class="connexion">
-        <a href="?debug_login">Connexion (debug)</a> 
-        <a href="/connexion/inscription">Inscription</a>
-      </div>
-    <?php endif; ?>
-  </nav>
-</header>
+    <?php
+    if (isset($_SESSION['user_nom'])) {
+        echo '<a href="/connexion/deconnexion">Déconnexion</a>';
+    } else {
+        echo '<a href="/connexion">Connexion</a>';
+        echo '<a href="/connexion/inscription">Inscription</a>'
+        ;
+        echo '<a href="/profil">Profil</a>';
+    }
