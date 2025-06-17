@@ -1,5 +1,4 @@
 # Fichiers de configuration avec données sensibles
-conf/EXEMPLE_conf.inc.php
 conf/*conf.inc.php
 
 # Sauvegardes de base de données

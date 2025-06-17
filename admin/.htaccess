@@ -1,4 +1,4 @@
 AuthType Basic
 AuthName "Zone protégée - Admin SAE202"
-AuthUserFile /etc/apache2/.htpasswd_sae202
+AuthUserFile /home/mmis2/htpassword.mmi
 Require valid-user
