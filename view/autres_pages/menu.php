@@ -21,4 +21,5 @@
         echo '<a href="/connexion/inscription">Inscription</a>'
         ;
         echo '<a href="/profil">Profil</a>';
-    }
+    }?>
+  </header>
