@@ -1,17 +1,28 @@
 Pour docker :
 
+!!!Correction dans le fichier de conf, il faut remettre ce que j'ai rajouté (la réécriture des chemins)!!!
 
 /etc/apache2/sites-available/000-sae202.conf:
 ```
- <VirtualHost *:80>
-        ServerName sae202.mmi-troyes.fr 
+<VirtualHost *:80>
+
+        ServerName sae202.mmi-troyes.fr
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/sae202
+        DirectoryIndex index.php
 
+<Directory /var/www/sae202>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+) index.php/$1
+</Directory>
 
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
+ErrorLog ${APACHE_LOG_DIR}/sae202_error.log
+CustomLog ${APACHE_LOG_DIR}/sae202_access.log combined
+
 </VirtualHost>
+
 ```
 Puis ne pas oublier de l'activer et de relancer apache
 ```

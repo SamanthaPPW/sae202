@@ -17,4 +17,3 @@ function index() {
     require(__DIR__ . '/../view/profil_view.php');
     require(__DIR__ . '/../view/autres_pages/footer.php');
 
-}
