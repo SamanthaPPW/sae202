@@ -1,0 +1,10 @@
+# Fichiers de configuration avec données sensibles
+conf/*conf.inc.php
+
+# Sauvegardes de base de données
+*.sql
+sae202_backup.sql
+
+# Autres fichiers sensibles (si besoin)
+.env
+*.log

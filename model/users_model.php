@@ -1,5 +1,5 @@
 <?php
-require_once 'conf/conf.inc.php';
+require_once 'conf/EXEMPLE_conf.inc.php';
 
 function verif_utilisateur($email) {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASSWORD);

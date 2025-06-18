@@ -10,15 +10,24 @@
     <a href="/concept">Concept</a>
     <a href="/infos">Informations</a>
 
-    <?php
-    if (isset($_SESSION['user_id'])) {
-        echo '<a href="/connexion/deconnexion">Déconnexion</a>';
-        echo '<a href="/profil">Profil</a>';
-        echo '<a href="/messagerie">Messagerie</a>';
-    } else {
-        echo '<a href="/connexion">Connexion</a>';
-        echo '<a href="/connexion/inscription">Inscription</a>'
-        ;
-        
-    }?>
-  </header>
+    <?php if (isset($_SESSION['user_id'])) : ?>
+      <a href="/profil">Profil</a>
+      <a href="/messagerie">Messagerie</a>
+
+      <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+        <a href="/admin">Admin</a>
+      <?php endif; ?>
+
+      <div class="connexion">
+        Bienvenue <?= htmlspecialchars($_SESSION['user_nom'] ?? 'Utilisateur') ?>
+        <a href="/deconnexion">Déconnexion</a>
+      </div>
+
+    <?php else: ?>
+      <div class="connexion">
+        <a href="/connexion">Connexion</a>
+        <a href="/connexion/inscription">Inscription</a>
+      </div>
+    <?php endif; ?>
+  </nav>
+</header>

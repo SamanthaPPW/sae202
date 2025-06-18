@@ -1,11 +1,22 @@
-<?php 
+<?php
 require('model/users_model.php');
-function index()
-{
-    require('view/autres_pages/header.php');  
-    require('view/autres_pages/menu.php');
-    require('view/profil_view.php');
-    require('view/autres_pages/footer.php');
+
+session_start();
+
+require_once(__DIR__ . '/../model/utilisateurs_model.php');
+
+function index() {
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: /connexion');
+        exit;
+    }
+
+    $user = getUserById($_SESSION['user_id']);
+
+    require(__DIR__ . '/../view/autres_pages/header.php');
+    require(__DIR__ . '/../view/autres_pages/menu.php');
+    require(__DIR__ . '/../view/profil_view.php');
+    require(__DIR__ . '/../view/autres_pages/footer.php');
 
     $user = get_user_by_id($_SESSION['user_id']);
 }
