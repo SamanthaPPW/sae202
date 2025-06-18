@@ -1,4 +1,5 @@
 <?php
+require('model/users_model.php');
 
 session_start();
 
@@ -17,3 +18,5 @@ function index() {
     require(__DIR__ . '/../view/profil_view.php');
     require(__DIR__ . '/../view/autres_pages/footer.php');
 
+    $user = get_user_by_id($_SESSION['user_id']);
+}

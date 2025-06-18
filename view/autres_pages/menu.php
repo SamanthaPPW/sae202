@@ -1,3 +1,6 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
 
 <header>
   <img src="/view/img/logo.png" alt="Logo de l'event" id="logo">
