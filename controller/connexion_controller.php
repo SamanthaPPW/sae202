@@ -40,7 +40,7 @@ function verif_connexion()
         
         if ($resultat && $resultat['user_mail'] == $_POST['email'] && password_verify($_POST['password'], $resultat['user_password'])) {
             session_start();
-            $_SESSION['user_nom'] = $resultat['user_nom'];
+            $_SESSION['user_id'] = $resultat['user_id'];
             header('Location: /');
         } else {
             header('Location: /connexion?error=invalid_credentials');
@@ -89,7 +89,7 @@ function validation_inscription()
 function profil()
 {
     session_start();
-    if (!isset($_SESSION['user_nom'])) {
+    if (!isset($_SESSION['user_id'])) {
         header('Location: /connexion?error=not_logged_in');
         exit();
     }
