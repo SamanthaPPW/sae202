@@ -1,6 +1,6 @@
 <?php
 require('model/messagerie_model.php');
-require('model/users_model.php');
+require('model/utilisateurs_model.php');
 
 function index() {
     session_start();

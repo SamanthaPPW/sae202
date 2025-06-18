@@ -1,11 +1,11 @@
 <?php
-require_once(__DIR__ . '/../conf/EXEMPLE_conf.inc.php');
+require_once(__DIR__ . '/../conf/conf.inc.php');
 
 try {
     $pdo = new PDO(
-        'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8',
-        DB_USER,
-        DB_PASSWORD
+        'mysql:host=' . HOST . ';dbname=' . DBNAME . ';charset=utf8',
+        USER,
+        PASSWORD
     );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {

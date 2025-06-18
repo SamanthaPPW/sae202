@@ -1,11 +1,10 @@
 <?php
-require_once 'conf/conf.inc.php';
+require_once(__DIR__ . '/db.php');
 
 function getMessages($user_id, $type = null, $id = null) {
-    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASSWORD);
-
+    global $pdo;
     if ($id !== null) {
-        $stmt = $db->prepare("SELECT * FROM messages WHERE message_id = :id");
+        $stmt = $pdo->prepare("SELECT * FROM messages WHERE message_id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
@@ -13,24 +12,24 @@ function getMessages($user_id, $type = null, $id = null) {
     }
 
     if ($type === 'E') {
-        $stmt = $db->prepare("
-            SELECT messages.*, users.user_prenom, users.user_nom FROM messages JOIN users ON messages.message_destinataire_id = users.user_id WHERE messages.message_expediteur_id = :user_id ORDER BY messages.message_date_envoi DESC");
+        $stmt = $pdo->prepare("
+            SELECT messages.*, utilisateurs.prenom, utilisateurs.nom FROM messages JOIN utilisateurs ON messages.message_destinataire_id = utilisateurs.id WHERE messages.message_expediteur_id = :id ORDER BY messages.message_date_envoi DESC");
     } elseif ($type === 'R') {
-        $stmt = $db->prepare("
-            SELECT messages.*, users.user_prenom, users.user_nom FROM messages JOIN users ON messages.message_expediteur_id = users.user_id WHERE messages.message_destinataire_id = :user_id ORDER BY messages.message_date_envoi DESC");
+        $stmt = $pdo->prepare("
+            SELECT messages.*, utilisateurs.prenom, utilisateurs.nom FROM messages JOIN utilisateurs ON messages.message_expediteur_id = utilisateurs.id WHERE messages.message_destinataire_id = :id ORDER BY messages.message_date_envoi DESC");
     } else {
         return [];
     }
 
-    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function envoyerMessage($expediteur, $destinataire, $sujet, $message) {
-    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASSWORD);
-    $stmt = $db->prepare("
+    global $pdo;
+    $stmt = $pdo->prepare("
         INSERT INTO messages 
         (message_expediteur_id, message_destinataire_id, message_sujet, message_text, message_date_envoi) 
         VALUES 
@@ -40,14 +39,14 @@ function envoyerMessage($expediteur, $destinataire, $sujet, $message) {
     $stmt->bindParam(':expediteur', $expediteur);
     $stmt->bindParam(':destinataire', $destinataire);
     $stmt->bindParam(':sujet', $sujet);
-    $stmt->bindParam(':message', $message);
+    $stmt->bindParam(':message', $message); 
 
     return $stmt->execute();
 }
 
 function supprimerMessage($id) {
-    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASSWORD);
-    $stmt = $db->prepare("DELETE FROM messages WHERE message_id = :id");
+    global $pdo;
+    $stmt = $pdo->prepare("DELETE FROM messages WHERE message_id = :id");
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
     return $stmt->execute();

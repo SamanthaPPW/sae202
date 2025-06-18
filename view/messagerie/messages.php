@@ -22,7 +22,7 @@
     <tbody>
         <?php foreach ($messagesR as $message): ?>
             <tr>
-                <td><?php echo $message['user_prenom'] . ' ' . $message['user_nom']; ?></td>
+                <td><?php echo $message['prenom'] . ' ' . $message['nom']; ?></td>
                 <td><?= htmlspecialchars($message['message_sujet']) ?></td>
                 <td><?= htmlspecialchars($message['message_date_envoi']) ?></td>
                 <td><a href="/messagerie/afficher_message?id=<?= $message['message_id'] ?>">Afficher</a></td>
@@ -47,7 +47,7 @@
     <tbody>
         <?php foreach ($messagesE as $message): ?>
             <tr>
-                <td><?php echo $message['user_prenom'] . ' ' . $message['user_nom']; ?></td>
+                <td><?php echo $message['prenom'] . ' ' . $message['nom']; ?></td>
                 <td><?= htmlspecialchars($message['message_sujet']) ?></td>
                 <td><?= htmlspecialchars($message['message_date_envoi']) ?></td>
                 <td><a href="/messagerie/afficher_message?id=<?= $message['message_id'] ?>">Afficher</a></td>

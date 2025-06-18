@@ -5,8 +5,8 @@
     <label for="destinataire">Destinataire :</label>
     <select name="message_destinataire_id">
         <?php foreach ($users as $utilisateur): ?>
-            <option value="<?= $utilisateur['user_id'] ?>">
-            <?= htmlspecialchars($utilisateur['user_nom'] . ' ' . $utilisateur['user_prenom']) ?>
+            <option value="<?= $utilisateur['id'] ?>">
+            <?= htmlspecialchars($utilisateur['nom'] . ' ' . $utilisateur['prenom']) ?>
 
             </option>
         <?php endforeach; ?>

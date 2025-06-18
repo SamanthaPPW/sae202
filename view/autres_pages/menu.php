@@ -1,6 +1,4 @@
-<?php if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}?>
+<?php session_start();?>
 
 <header>
   <img src="/view/img/logo.png" alt="Logo de l'event" id="logo">
@@ -10,7 +8,7 @@
     <a href="/concept">Concept</a>
     <a href="/infos">Informations</a>
 
-    <?php if (isset($_SESSION['user_id'])) : ?>
+    <?php if (isset($_SESSION['id'])) : ?>
       <a href="/profil">Profil</a>
       <a href="/messagerie">Messagerie</a>
 
@@ -19,8 +17,8 @@
       <?php endif; ?>
 
       <div class="connexion">
-        Bienvenue <?= htmlspecialchars($_SESSION['user_nom'] ?? 'Utilisateur') ?>
-        <a href="/deconnexion">Déconnexion</a>
+        Bienvenue <?= htmlspecialchars($_SESSION['nom'] ?? 'Utilisateur') ?>
+        <a href="/connexion/deconnexion">Déconnexion</a>
       </div>
 
     <?php else: ?>
@@ -28,6 +26,12 @@
         <a href="/connexion">Connexion</a>
         <a href="/connexion/inscription">Inscription</a>
       </div>
-    <?php endif; ?>
+    <?php var_dump($_SESSION);
+if (isset($_SESSION['user_id'])) {
+    echo "Connecté en tant que " . htmlspecialchars($_SESSION['user_nom']);
+} else {
+    echo "Non connecté";
+}
+;endif; ?>
   </nav>
 </header>
