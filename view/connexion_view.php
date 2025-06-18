@@ -1,6 +1,6 @@
 <div class="contenu">
     <h1>Connexion</h1>
-    <form method="post" action="/connexion">
+    <form method="post" action="/connexion/verif_connexion">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         
@@ -12,7 +12,7 @@
 
     <?php if (isset($error_message)) : ?>
         <p class="error"><?php echo htmlspecialchars($error_message); ?></p>
-    <?php var_dump($_SESSION); endif; ?>
+    <?php endif; ?>
     
     <p>Pas encore inscrit ? <a href="/connexion/inscription">Inscrivez-vous ici</a>.</p>
 </div>

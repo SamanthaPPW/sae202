@@ -26,12 +26,6 @@
         <a href="/connexion">Connexion</a>
         <a href="/connexion/inscription">Inscription</a>
       </div>
-    <?php var_dump($_SESSION);
-if (isset($_SESSION['user_id'])) {
-    echo "Connecté en tant que " . htmlspecialchars($_SESSION['user_nom']);
-} else {
-    echo "Non connecté";
-}
-;endif; ?>
+    <?php endif; ?>
   </nav>
 </header>
