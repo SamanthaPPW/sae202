@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 18 juin 2025 à 08:16
+-- Généré le : mer. 18 juin 2025 à 08:32
 -- Version du serveur : 10.11.6-MariaDB-0+deb12u1
 -- Version de PHP : 8.2.26
 
@@ -35,6 +35,32 @@ CREATE TABLE `comments` (
   `date_posted` datetime DEFAULT current_timestamp(),
   `is_approved` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messages`
+--
+
+CREATE TABLE `messages` (
+  `message_id` int(11) NOT NULL,
+  `message_expediteur_id` int(11) NOT NULL,
+  `message_destinataire_id` int(11) NOT NULL,
+  `message_sujet` varchar(100) NOT NULL,
+  `message_text` text NOT NULL,
+  `message_date_envoi` date NOT NULL,
+  `statut` varchar(10) NOT NULL DEFAULT 'non_lu',
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `message_expediteur_id`, `message_destinataire_id`, `message_sujet`, `message_text`, `message_date_envoi`, `statut`, `user_id`) VALUES
+(1, 2, 2, 'sujis', 'dhjigerjih', '2025-06-18', 'non_lu', NULL),
+(2, 2, 3, 'j\'en ai marre fejieffzekji', 'j\'en ai marre ejzfkhrglrelkghehilhvhvdfjhujgrfiqhufhuffdvjfdvjhfvhudfvhujdfvfvhdfvhudvhgdfhfdvgdsnjvdzgjndhndfvjhsbdvdhjfbvdfjvb', '2025-06-18', 'non_lu', NULL),
+(3, 5, 2, 'cdv', 'dgdf', '2025-06-18', 'non_lu', NULL);
 
 -- --------------------------------------------------------
 
@@ -72,6 +98,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`);
+
+--
 -- Index pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
@@ -87,6 +119,12 @@ ALTER TABLE `utilisateurs`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
