@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Connexion Administrateur</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
             margin: 0;
             padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
+            color: #eaeaea;
         }
 
         .login-container {
-            background-color: #ffffff;
+            background-color: #1f1f1f;
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
             width: 100%;
             max-width: 400px;
         }
@@ -27,9 +28,9 @@
         h1 {
             text-align: center;
             font-weight: 500;
+            font-size: 26px;
             margin-bottom: 25px;
-            font-size: 24px;
-            color: #333;
+            color: #eaeaea;
         }
 
         form {
@@ -38,24 +39,37 @@
         }
 
         label {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-size: 14px;
-            color: #444;
+            color: #ccc;
         }
 
         input[type="email"],
         input[type="password"] {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ccc;
+            border: 1px solid #444;
             border-radius: 6px;
             font-size: 14px;
-            margin-top: 5px;
+            margin-top: 6px;
+            background-color: #2a2a2a;
+            color: #fff;
+        }
+
+        input[type="email"]::placeholder,
+        input[type="password"]::placeholder {
+            color: #888;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #e63946;
         }
 
         button {
             padding: 12px;
-            background-color: #2c2c2c;
+            background-color: #e63946;
             color: #fff;
             border: none;
             border-radius: 6px;
@@ -66,11 +80,11 @@
         }
 
         button:hover {
-            background-color: #111;
+            background-color: #c62832;
         }
 
         .error {
-            color: #d9534f;
+            color: #e63946;
             font-size: 14px;
             margin-bottom: 15px;
             text-align: center;
@@ -85,10 +99,10 @@
         <?php endif; ?>
         <form action="index.php?action=doLogin" method="post">
             <label>Email :
-                <input type="email" name="email" required>
+                <input type="email" name="email" placeholder="Votre email" required>
             </label>
             <label>Mot de passe :
-                <input type="password" name="password" required>
+                <input type="password" name="password" placeholder="Votre mot de passe" required>
             </label>
             <button type="submit">Se connecter</button>
         </form>

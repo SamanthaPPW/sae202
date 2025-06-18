@@ -1,98 +1,251 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <title>Back Office - Liste des utilisateurs</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 40px;
-            color: #222;
-        }
+<meta charset="UTF-8" />
+<title>Back Office - Liste des utilisateurs</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    margin: 0;
+    padding: 40px;
+    color: #eaeaea;
+}
 
-        h1 {
-            text-align: center;
-            font-weight: 500;
-            font-size: 32px;
-            margin-bottom: 30px;
-        }
+h1 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
 
-        a {
-            display: inline-block;
-            background-color: #2c2c2c;
-            color: white;
-            padding: 10px 18px;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            float: right;
-            transition: background-color 0.3s ease;
-        }
+a {
+    display: inline-block;
+    background-color: #e63946; /* vert émeraude */
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    float: right;
+    transition: background-color 0.3s ease;
+}
 
-        a:hover {
-            background-color: #111;
-        }
+a:hover {
+    background-color: #0f9f77;
+}
 
-        .table-container {
-            background-color: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            overflow-x: auto;
-        }
+.filter-tabs {
+    margin-bottom: 20px;
+    clear: both;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 15px;
-        }
+.filter-tabs a {
+    margin-right: 10px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #333;
+    color: #eaeaea;
+    text-decoration: none;
+    font-size: 14px;
+}
 
-        thead {
-            background-color: #333;
-            color: #fff;
-        }
+.filter-tabs a.active {
+    background-color: #e63946;
+    font-weight: bold;
+}
 
-        th, td {
-            text-align: left;
-            padding: 14px 16px;
-            border-bottom: 1px solid #e0e0e0;
-        }
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    clear: both;
+}
 
-        tbody tr:hover {
-            background-color: #f9f9f9;
-        }
+.stat-card {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
 
-        tbody tr:last-child td {
-            border-bottom: none;
-        }
-    </style>
+.stat-number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e63946;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.recent-users-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #eaeaea;
+}
+
+.recent-users-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.recent-user-card {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #e63946;
+}
+
+.user-info strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+.user-info small {
+    color: #bbb;
+    font-size: 12px;
+}
+
+.user-time {
+    background-color: #444;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #e63946;
+    font-weight: bold;
+}
+
+.table-container {
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    color: #eaeaea;
+}
+
+thead {
+    background-color: #111;
+    color: #e63946;
+}
+
+th, td {
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: 1px solid #333;
+}
+
+tbody tr:hover {
+    background-color: #292929;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+</style>
 </head>
 <body>
-    <h1>Liste des utilisateurs</h1>
-    <a href="index.php?action=logout">Déconnexion</a>
+<?php
+$period = $period ?? 'today';
+$users = $users ?? [];
+$recent_users = $recent_users ?? [];
+$stats = $stats ?? [];
+?>
 
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Date inscription</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($users as $user): ?>
-                <tr>
-                    <td><?=htmlspecialchars($user['id'])?></td>
-                    <td><?=htmlspecialchars($user['nom'])?></td>
-                    <td><?=htmlspecialchars($user['prenom'])?></td>
-                    <td><?=htmlspecialchars($user['email'])?></td>
-                    <td><?=htmlspecialchars($user['telephone'])?></td>
-                    <td><?=htmlspecialchars($user['date_inscription'])?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+<h1>Gestion des utilisateurs</h1>
+<a href="index.php?action=logout" style="background-color: #333;">Déconnexion</a>
+<a href="index.php?action=addUser">Ajouter un utilisateur</a>
+
+<div class="filter-tabs">
+    <a href="?period=today" class="<?= $period === 'today' ? 'active' : '' ?>">Aujourd'hui</a>
+    <a href="?period=week" class="<?= $period === 'week' ? 'active' : '' ?>">Cette semaine</a>
+    <a href="?period=month" class="<?= $period === 'month' ? 'active' : '' ?>">Ce mois</a>
+</div>
+
+<div class="stats-container">
+    <div class="stat-card">
+        <div class="stat-number"><?= $stats['total_users'] ?? 0 ?></div>
+        <div class="stat-label">Total utilisateurs</div>
     </div>
+    <div class="stat-card">
+        <div class="stat-number"><?= $stats['monthly_registrations'] ?? 0 ?></div>
+        <div class="stat-label">Ce mois</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number"><?= $stats['weekly_registrations'] ?? 0 ?></div>
+        <div class="stat-label">Cette semaine</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number"><?= $stats['today_registrations'] ?? 0 ?></div>
+        <div class="stat-label">Aujourd'hui</div>
+    </div>
+</div>
+
+<?php if (!empty($recent_users)): ?>
+<div class="recent-users-section">
+    <?php
+    $label = match ($period) {
+        'today' => "aujourd'hui",
+        'week' => "cette semaine",
+        'month' => "ce mois",
+        default => "",
+    };
+    ?>
+    <h2>Utilisateurs créés <?= $label ?></h2>
+    <div class="recent-users-container">
+        <?php foreach($recent_users as $user): ?>
+        <div class="recent-user-card">
+            <div class="user-info">
+                <strong><?= htmlspecialchars($user['prenom']) ?> <?= htmlspecialchars($user['nom']) ?></strong>
+                <small><?= htmlspecialchars($user['email']) ?></small>
+            </div>
+            <div class="user-time">
+                <?= date('H:i', strtotime($user['date_inscription'])) ?>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<?php endif; ?>
+
+<div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Date inscription</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($users as $user): ?>
+        <tr>
+            <td><?= htmlspecialchars($user['id']) ?></td>
+            <td><?= htmlspecialchars($user['nom']) ?></td>
+            <td><?= htmlspecialchars($user['prenom']) ?></td>
+            <td><?= htmlspecialchars($user['email']) ?></td>
+            <td><?= htmlspecialchars($user['telephone']) ?></td>
+            <td><?= htmlspecialchars($user['date_inscription']) ?></td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

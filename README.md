@@ -90,3 +90,32 @@ Si jamais vous voulez publier maintenant (ce qui est inutile, on a besoin que d'
 find /var/www/sae202 -type d -exec chmod 750 {} \; #Les dossier seront en 750
 find /var/www/sae202 -type f -exec chmod 640 {} \; #Les fichiers, qui ne sont pas executables seront en 640 pour plus de sécurité
 ```
+Fichier conf apache 2 de moi (Nambinintsoa)
+```
+<VirtualHost *:80>
+    ServerName mmi24a09.sae202.ovh
+    DocumentRoot /var/www/sae202
+
+    <Directory /var/www/sae202>
+        AllowOverride All
+        Require all granted
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^/]+) index.php/$1
+    </Directory>
+
+    Alias /gestion /var/www/sae202/admin
+    <Directory /var/www/sae202/admin>
+        AllowOverride All
+        AuthType Basic
+        AuthName "Espace Administrateur"
+	AuthUserFile /home/mmis2/htpassword.mmi
+        Require valid-user
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/sae202-error.log
+    CustomLog ${APACHE_LOG_DIR}/sae202-access.log combined
+</VirtualHost>
+```
+
