@@ -8,3 +8,4 @@ sae202_backup.sql
 # Autres fichiers sensibles (si besoin)
 .env
 *.log
+EXEMPLE_conf.inc.php
