@@ -118,4 +118,24 @@ Fichier conf apache 2 de moi (Nambinintsoa)
     CustomLog ${APACHE_LOG_DIR}/sae202-access.log combined
 </VirtualHost>
 ```
+```
 
+ALTER TABLE messages ADD PRIMARY KEY (message_id);
+ALTER TABLE messages MODIFY COLUMN message_id INT(11) AUTO_INCREMENT;
+
+ALTER TABLE messages MODIFY COLUMN message_date_envoi DATETIME NOT NULL;
+
+ALTER TABLE messages DROP COLUMN user_id;
+
+ALTER TABLE messages ADD INDEX idx_expediteur (message_expediteur_id);
+ALTER TABLE messages ADD INDEX idx_destinataire (message_destinataire_id);
+ALTER TABLE messages ADD INDEX idx_date (message_date_envoi);
+
+ALTER TABLE messages 
+ADD CONSTRAINT fk_messages_expediteur 
+FOREIGN KEY (message_expediteur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE;
+
+ALTER TABLE messages 
+ADD CONSTRAINT fk_messages_destinataire 
+FOREIGN KEY (message_destinataire_id) REFERENCES utilisateurs(id) ON DELETE CASCADE;
+```
