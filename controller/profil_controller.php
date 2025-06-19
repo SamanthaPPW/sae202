@@ -2,11 +2,11 @@
 require_once __DIR__ . '/../model/db.php';
 
 function index(){
-//    global $pdo;
-//    $stmt = $pdo->query("SELECT id, nom, prenom, email, telephone, date_inscription FROM utilisateurs");
-//    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    global $pdo;
+    $stmt = $pdo->query("SELECT id, nom, prenom, email, telephone, date_inscription FROM utilisateurs");
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//    require('view/users/list.php');
+   require('view/users/list.php');
 }
 
 function add(){

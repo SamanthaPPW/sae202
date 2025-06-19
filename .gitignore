@@ -2,7 +2,6 @@
 conf/*conf.inc.php
 
 # Sauvegardes de base de données
-*.sql
 sae202_backup.sql
 
 # Autres fichiers sensibles (si besoin)

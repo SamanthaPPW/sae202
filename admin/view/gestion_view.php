@@ -21,7 +21,7 @@ h1 {
 
 a {
     display: inline-block;
-    background-color: #e63946; /* vert émeraude */
+    background-color: #e63946;
     color: white;
     padding: 10px 18px;
     text-decoration: none;
@@ -160,6 +160,46 @@ tbody tr:hover {
 tbody tr:last-child td {
     border-bottom: none;
 }
+
+/* Styles pour les boutons d'action */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-edit {
+    background-color: #28a745;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    margin: 0;
+    float: none;
+    display: inline-block;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    margin: 0;
+    float: none;
+    display: inline-block;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
 </style>
 </head>
 <body>
@@ -230,7 +270,13 @@ $stats = $stats ?? [];
     <table>
         <thead>
         <tr>
-            <th>ID</th><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Date inscription</th>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Date inscription</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -242,10 +288,31 @@ $stats = $stats ?? [];
             <td><?= htmlspecialchars($user['email']) ?></td>
             <td><?= htmlspecialchars($user['telephone']) ?></td>
             <td><?= htmlspecialchars($user['date_inscription']) ?></td>
+            <td>
+                <div class="action-buttons">
+                    <a href="index.php?action=editUser&id=<?= $user['id'] ?>" class="btn-edit">Modifier</a>
+                    <a href="index.php?action=deleteUser&id=<?= $user['id'] ?>" class="btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</a>
+                </div>
+            </td>
         </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+
+<script>
+// Confirmation avant suppression
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            if (!confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ? Cette action est irréversible.')) {
+                e.preventDefault();
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
