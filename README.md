@@ -5,22 +5,29 @@ Pour docker :
 /etc/apache2/sites-available/000-sae202.conf:
 ```
 <VirtualHost *:80>
+    ServerName mmi24a09.sae202.ovh
+    DocumentRoot /var/www/sae202
 
-        ServerName sae202.mmi-troyes.fr
-        ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/sae202
-        DirectoryIndex index.php
+    <Directory /var/www/sae202>
+        AllowOverride All
+        Require all granted
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^/]+) index.php/$1
+    </Directory>
 
-<Directory /var/www/sae202>
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^/]+) index.php/$1
-</Directory>
+    Alias /gestion /var/www/sae202/admin
+    <Directory /var/www/sae202/admin>
+        AllowOverride All
+        AuthType Basic
+        AuthName "Espace Administrateur"
+	AuthUserFile /home/mmis2/htpassword.mmi
+        Require valid-user
+    </Directory>
 
-ErrorLog ${APACHE_LOG_DIR}/sae202_error.log
-CustomLog ${APACHE_LOG_DIR}/sae202_access.log combined
-
+    ErrorLog ${APACHE_LOG_DIR}/sae202-error.log
+    CustomLog ${APACHE_LOG_DIR}/sae202-access.log combined
 </VirtualHost>
 
 ```
@@ -90,36 +97,10 @@ Si jamais vous voulez publier maintenant (ce qui est inutile, on a besoin que d'
 find /var/www/sae202 -type d -exec chmod 750 {} \; #Les dossier seront en 750
 find /var/www/sae202 -type f -exec chmod 640 {} \; #Les fichiers, qui ne sont pas executables seront en 640 pour plus de sécurité
 ```
-Fichier conf apache 2 de moi (Nambinintsoa)
+
+
+Modification de la table messagerie : 
 ```
-<VirtualHost *:80>
-    ServerName mmi24a09.sae202.ovh
-    DocumentRoot /var/www/sae202
-
-    <Directory /var/www/sae202>
-        AllowOverride All
-        Require all granted
-	RewriteEngine On
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^([^/]+) index.php/$1
-    </Directory>
-
-    Alias /gestion /var/www/sae202/admin
-    <Directory /var/www/sae202/admin>
-        AllowOverride All
-        AuthType Basic
-        AuthName "Espace Administrateur"
-	AuthUserFile /home/mmis2/htpassword.mmi
-        Require valid-user
-    </Directory>
-
-    ErrorLog ${APACHE_LOG_DIR}/sae202-error.log
-    CustomLog ${APACHE_LOG_DIR}/sae202-access.log combined
-</VirtualHost>
-```
-```
-
 ALTER TABLE messages ADD PRIMARY KEY (message_id);
 ALTER TABLE messages MODIFY COLUMN message_id INT(11) AUTO_INCREMENT;
 
