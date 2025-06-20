@@ -3,5 +3,5 @@ require_once('autres_pages/menu.php');
 require_once('autres_pages/header.php');
 ?>
 <div class="contenu">
-<h1>le site de la sae 202</h1>
+<img src="https://placehold.co/450x685" alt="Image de l'événement" id="accueilImg"> <!--450 serait plut réaliste que 576 en mobile avec les marges posées-->
 </div>
