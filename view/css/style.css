@@ -1,16 +1,16 @@
-
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color:#121321 !important;
-    color: white !important;
-  }
+    color : white;
+}
+
 
 @media all and (max-width:480px){
     .topnav {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: auto auto 1fr auto;
         align-items: center;
         background-color: #1E1B2E;
         padding: 0 16px;
@@ -18,25 +18,25 @@ body {
         height: 100px;
         color: white;
         margin-top : -6px;
+        gap: 10px;
     }
     .topnav a:hover {
         background-color: #ddd;
         color: black;
     }    
     #logo {
-        width: 100px;
-        justify-self: start;
+        width: 60px;
+        height: auto;
     }
     #typo { /*Titre*/
-        justify-self: center;
-        position: relative;
-        top:-11px;
+        height: 60px;
+        width: auto;
     }
     .icon { /*Menu Hamburger */
         justify-self: end;
         cursor: pointer;
         font-size: 24px;
-        background: black;
+        background: none;
         padding: 8px 12px;
         border-radius: 4px;
         color: white;
@@ -55,6 +55,9 @@ body {
     }
     #liens.show {
         display: block;
+    }
+    .langue {
+        display: none;
     }
     #liens a {
         color: white;
@@ -75,59 +78,219 @@ body {
         margin: 10px;
         padding: 0 1%;
         color: blueviolet;
-      }
+    }
 }   
 
-
-@media all and (min-width: 481px){
+/* Breakpoint intermédiaire pour les écrans moyens */
+@media all and (min-width: 481px) and (max-width: 768px) {
     .topnav {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+        display: flex;
         align-items: center;
+        justify-content: space-between;
         background-color: #1E1B2E;
-        padding: 0 16px;
-        position: relative;
-        height: 100px;
+        padding: 0 20px;
+        height: 170px;
         color: white;
-        margin-top : -6px;
+        flex-wrap: wrap;
     }
     
     #logo{
-        width : 100px;
-        position: relative;
-        top : -60px;
+        width: 70px;
+        height: auto;
+        margin-top: 10px;
+        flex-shrink: 0;
     }
 
     #typo{
-        position: relative;
-        top : -100px;
-        width:95%;
+        margin-top: -25px;
+        height: 60px;
+        width: auto;
+        flex-shrink: 0;
     }
-        #liens {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-      position: static;
-      width: auto;
-      padding: 0;
-      background: none;
+    
+    #liens {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        gap: 20px;
+        text-decoration: underline;
+        flex-wrap: wrap;
+        margin: 0 10px;
     }
-
+    
     #liens a {
-      display: inline-block;
-      padding: 14px 16px;
+        display: inline-block;
+        padding: 6px 10px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    
+    #liens a:hover {
+        background-color: #555;
+        color: #fff;
     }
   
+    .langue {
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .langue:hover {
+        background-color: #555;
+        color: #ffffff;
+    }
+
     .icon {
-      display: none;
+        display: none;
     }
   
     .connexion {
-      display: inline-block;
-      padding: 0;
-      margin-left: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 6px 10px;
+        margin: 0;
+        color: #ccc;
+        font-size: 12px;
+        flex-shrink: 0;
     }
   }
     
+    .connexion a {
+        color: #fff !important;
+        padding: 4px 8px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 12px;
+    }
+    
+    .connexion a:hover {
+        background-color: #555;
+    }
+    
+    .contenu{
+        color: white;
+    }
+
+
+/* Breakpoint pour les grands écrans */
+@media all and (min-width: 769px){
+    .topnav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #1E1B2E;
+        padding: 0 40px;
+        height: 100px;
+        color: white;
+    }
+    
+    #logo{
+        width: 90px;
+        height: auto;
+        margin-top: -5px;
+    }
+
+    #typo{
+        margin-top: -35px;
+        height: 80px;
+        width: auto;
+    }
+    
+    #liens {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        gap: 70px;
+        text-decoration: underline;
+    }
+    
+    #liens a {
+        display: inline-block;
+        padding: 8px 12px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        font-size: 18px;
+    }
+    
+    #liens a:hover {
+        background-color: #555;
+        color: #fff;
+    }
+  
+    .langue {
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .langue:hover {
+        background-color: #555;
+        color: #ffffff;
+    }
+
+    .icon {
+        display: none;
+    }
+  
+    .connexion {
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        padding: 8px 12px;
+        margin: 0;
+        color: #ccc;
+        font-size: 14px;
+        margin-left: 10px;
+        padding-left: 15px;
+    }
+    
+    .connexion a {
+        color: #fff !important;
+        padding: 6px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .connexion a:hover {
+        background-color: #555;
+    }
+    
+    .contenu{
+        color: white;
+    }
+}
+
 
 body{margin-top:20px;}
 .card-style1 {

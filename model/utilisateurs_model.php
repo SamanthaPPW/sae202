@@ -3,7 +3,10 @@ if (!file_exists(__DIR__ . '/db.php')) {
     die('Fichier db.php introuvable');
 }
 require_once(__DIR__ . '/db.php');  
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7054ab97beb032561d637c9b4b2a8252cd6eda29
 function getUserById($id) {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE id = ?");
