@@ -4,7 +4,7 @@ body {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color:#121321 !important;
-    color : white;
+    color: white !important;
   }
 
 @media all and (max-width:480px){
@@ -126,10 +126,7 @@ body {
       padding: 0;
       margin-left: 20px;
     }
-    .contenu{
-	color: white;}
   }
-
     
 
 body{margin-top:20px;}
