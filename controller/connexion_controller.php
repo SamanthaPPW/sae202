@@ -23,7 +23,7 @@ function index()
     }
 
     if (isset($_GET['success']) && $_GET['success'] === 'registration_complete') {
-        $success_message = 'Inscription réussie, vous pouvez maintenant vous connecter.';
+        $success_message = 'Inscription réussie, veuillez vérifier votre adresse mail sur votre boîte mail avant de vous connecter.';
     }
 
     require 'view/autres_pages/header.php';
@@ -110,7 +110,7 @@ function validation_inscription()
     if ($token !== false) {
         $prenom = ucfirst($prenom);
         $nom = ucfirst($nom);
-        $url = "https://mmi24f08.sae202.ovh/confirmation?token=$token";
+        $url = "https://mmi24f08.sae202.ovh/connexion/confirmation?token=$token";
 
         $subject = "Confirmation de votre inscription";
         $message = "
@@ -167,20 +167,28 @@ function confirmation() {
 
     global $pdo;
     $token = $_GET['token'];
-    $stmt = $pdo->prepare("SELECT id FROM utilisateurs WHERE confirmation_token = ?");
+
+
+    $stmt = $pdo->prepare("SELECT id, is_confirmed, confirmation_token FROM utilisateurs WHERE confirmation_token = ?");
     $stmt->execute([$token]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
+        echo "<p>Utilisateur trouvé : ID={$user['id']}, is_confirmed={$user['is_confirmed']}</p>";
+
+        if ($user['is_confirmed'] == 1) {
+            echo "<p>Ce compte est déjà confirmé.</p>";
+            exit;
+        }
+
         $stmt = $pdo->prepare("UPDATE utilisateurs SET is_confirmed = 1, confirmation_token = NULL WHERE id = ?");
         $stmt->execute([$user['id']]);
-        header('Location: /connexion?success=account_confirmed');
-exit();
+        echo "<p>Compte confirmé avec succès. Redirection en cours...</p>";
+        header('Refresh: 2; URL=/connexion?success=account_confirmed');
+        exit();
 
     } else {
-        echo "Token invalide ou déjà utilisé.";
+        echo "<p>Token invalide ou déjà utilisé.</p>";
     }
 }
-
-
 ?>

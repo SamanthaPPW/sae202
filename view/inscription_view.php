@@ -1,5 +1,17 @@
 <div class="contenu">
 
+<<<<<<< HEAD
+=======
+<?php
+mail("mmi24f08@mmi-troyes.fr", "Test", "Ceci est un test", "From: mmi24f08@mmi-troyes.fr");
+echo "Mail envoyé ?";
+echo"mAIL";
+echo"ALLEZ";
+echo"ok je suis definitivement bete :(";
+?>
+
+
+>>>>>>> bbd792c72447d8662f47711bed0a681378d333fd
     <h1>Inscription</h1>
     <form method="post" action="/connexion/validation_inscription">
         <label for="nom">Nom :</label>
