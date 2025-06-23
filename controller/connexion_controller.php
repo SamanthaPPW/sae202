@@ -96,7 +96,6 @@ function validation_inscription()
         exit();
     }
 
-    // IMPORTANT : Vérifier si l'email est déjà utilisé
     if (emailExists($email)) {
         header('Location: /connexion/inscription?error=email_already_exists');
         exit();
@@ -105,12 +104,41 @@ function validation_inscription()
     $token = createUser($nom, $prenom, $email, $telephone, $password);
 
     if ($token !== false) {
+        $prenom = ucfirst($prenom);
+        $nom = ucfirst($nom);
+        $url = "https://mmi24f08.sae202.ovh/confirmation?token=$token";
+
+        $subject = "Confirmation de votre inscription";
+        $message = "
+        <html>
+        <head><title>Confirmation d'inscription</title></head>
+        <body>
+            <p>Bonjour $prenom $nom,</p>
+            <p>Merci pour votre inscription !</p>
+            <p>Pour activer votre compte, cliquez sur le lien suivant :</p>
+            <p><a href=\"$url\">$url</a></p>
+            <p>Ce lien est à usage unique.</p>
+            <br>
+            <p>À bientôt !</p>
+        </body>
+        </html>
+        ";
+
+        $headers = "From: mmi24f08@mmi-troyes.fr\r\n";
+        $headers .= "Reply-To: mmi24f08@mmi-troyes.fr\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+        mail($email, $subject, $message, $headers);
+
+        // Redirection vers connexion avec message de succès
+        header('Location: /connexion?success=registration_complete');
+        exit();
     } else {
         header('Location: /connexion/inscription?error=registration_failed');
         exit();
     }
 }
-
 
 
 function profil()
@@ -142,10 +170,9 @@ function confirmation() {
     if ($user) {
         $stmt = $pdo->prepare("UPDATE utilisateurs SET is_confirmed = 1, confirmation_token = NULL WHERE id = ?");
         $stmt->execute([$user['id']]);
-        echo "Compte confirmé avec succès, vous pouvez maintenant vous connecter.";
-        // Ou redirige vers connexion:
-        // header('Location: /connexion?success=account_confirmed');
-        // exit;
+        header('Location: /connexion?success=account_confirmed');
+exit();
+
     } else {
         echo "Token invalide ou déjà utilisé.";
     }
