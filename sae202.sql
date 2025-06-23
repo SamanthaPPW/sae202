@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 23 juin 2025 à 07:56
+-- Généré le : lun. 23 juin 2025 à 12:54
 -- Version du serveur : 10.11.6-MariaDB-0+deb12u1
 -- Version de PHP : 8.2.26
 
@@ -45,65 +45,44 @@ CREATE TABLE `comments` (
 CREATE TABLE `creneaux` (
   `id` int(11) NOT NULL,
   `date_creneau` datetime NOT NULL,
-  `est_reserve` tinyint(1) DEFAULT 0,
-  `user_id` int(11) DEFAULT NULL
+  `est_reserve` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `creneaux`
 --
 
-INSERT INTO `creneaux` (`id`, `date_creneau`, `est_reserve`, `user_id`) VALUES
-(1, '2025-07-02 19:00:00', 0, NULL),
-(2, '2025-07-02 20:30:00', 0, NULL),
-(3, '2025-07-03 19:00:00', 1, 3),
-(4, '2025-07-03 20:30:00', 0, NULL),
-(5, '2025-07-04 19:00:00', 0, NULL),
-(6, '2025-07-04 20:30:00', 0, NULL),
-(7, '2025-07-06 19:00:00', 0, NULL),
-(8, '2025-07-06 20:30:00', 0, NULL),
-(9, '2025-07-09 19:00:00', 0, NULL),
-(10, '2025-07-09 20:30:00', 0, NULL),
-(11, '2025-07-10 19:00:00', 0, NULL),
-(12, '2025-07-10 20:30:00', 0, NULL),
-(13, '2025-07-11 19:00:00', 0, NULL),
-(14, '2025-07-11 20:30:00', 0, NULL),
-(15, '2025-07-13 19:00:00', 0, NULL),
-(16, '2025-07-13 20:30:00', 0, NULL),
-(17, '2025-07-16 19:00:00', 0, NULL),
-(18, '2025-07-16 20:30:00', 0, NULL),
-(19, '2025-07-17 19:00:00', 0, NULL),
-(20, '2025-07-17 20:30:00', 0, NULL),
-(21, '2025-07-18 19:00:00', 0, NULL),
-(22, '2025-07-18 20:30:00', 0, NULL),
-(23, '2025-07-19 19:00:00', 0, NULL),
-(24, '2025-07-19 20:30:00', 0, NULL),
-(25, '2025-07-20 19:00:00', 0, NULL),
-(26, '2025-07-20 20:30:00', 0, NULL),
-(27, '2025-07-23 19:00:00', 0, NULL),
-(28, '2025-07-23 20:30:00', 0, NULL),
-(29, '2025-07-24 19:00:00', 0, NULL),
-(30, '2025-07-24 20:30:00', 0, NULL),
-(31, '2025-07-25 19:00:00', 0, NULL),
-(32, '2025-07-25 20:30:00', 0, NULL),
-(33, '2025-07-26 19:00:00', 0, NULL),
-(34, '2025-07-26 20:30:00', 0, NULL),
-(35, '2025-07-27 19:00:00', 0, NULL),
-(36, '2025-07-27 20:30:00', 0, NULL),
-(37, '2025-07-30 19:00:00', 0, NULL),
-(38, '2025-07-30 20:30:00', 0, NULL),
-(39, '2025-07-31 19:00:00', 0, NULL),
-(40, '2025-07-31 20:30:00', 0, NULL),
-(41, '2025-08-01 19:00:00', 0, NULL),
-(42, '2025-08-01 20:30:00', 0, NULL),
-(43, '2025-08-02 19:00:00', 0, NULL),
-(44, '2025-08-02 20:30:00', 0, NULL),
-(45, '2025-08-03 19:00:00', 0, NULL),
-(46, '2025-08-03 20:30:00', 0, NULL),
-(47, '2025-08-06 19:00:00', 0, NULL),
-(48, '2025-08-06 20:30:00', 0, NULL),
-(49, '2025-08-10 19:00:00', 0, NULL),
-(50, '2025-08-10 20:30:00', 0, NULL);
+INSERT INTO `creneaux` (`id`, `date_creneau`, `est_reserve`) VALUES
+(1, '2025-07-03 19:00:00', 1),
+(2, '2025-07-03 20:30:00', 0),
+(3, '2025-07-04 19:00:00', 0),
+(4, '2025-07-04 20:30:00', 0),
+(5, '2025-07-05 19:00:00', 0),
+(6, '2025-07-05 20:30:00', 0),
+(7, '2025-07-10 19:00:00', 0),
+(8, '2025-07-10 20:30:00', 0),
+(9, '2025-07-11 19:00:00', 0),
+(10, '2025-07-11 20:30:00', 0),
+(11, '2025-07-12 19:00:00', 0),
+(12, '2025-07-12 20:30:00', 0),
+(13, '2025-07-17 19:00:00', 0),
+(14, '2025-07-17 20:30:00', 0),
+(15, '2025-07-18 19:00:00', 0),
+(16, '2025-07-18 20:30:00', 0),
+(17, '2025-07-19 19:00:00', 0),
+(18, '2025-07-19 20:30:00', 0),
+(19, '2025-07-24 19:00:00', 0),
+(20, '2025-07-24 20:30:00', 0),
+(21, '2025-07-25 19:00:00', 0),
+(22, '2025-07-25 20:30:00', 0),
+(23, '2025-07-26 19:00:00', 0),
+(24, '2025-07-26 20:30:00', 0),
+(25, '2025-07-31 19:00:00', 0),
+(26, '2025-07-31 20:30:00', 0),
+(27, '2025-08-01 19:00:00', 0),
+(28, '2025-08-01 20:30:00', 0),
+(29, '2025-08-02 19:00:00', 0),
+(30, '2025-08-02 20:30:00', 0);
 
 -- --------------------------------------------------------
 
@@ -133,6 +112,28 @@ INSERT INTO `messages` (`message_id`, `message_expediteur_id`, `message_destinat
 (4, 2, 1, 'Salut', 'Saluuuuuuuut', '2025-06-18', 'non_lu', NULL),
 (5, 3, 1, 'efbjihkgfbjim', 'jkfkeedk', '2025-06-19', 'non_lu', NULL),
 (6, 3, 1, 'xc', 'vcc', '2025-06-23', 'non_lu', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reservations`
+--
+
+CREATE TABLE `reservations` (
+  `id` int(11) NOT NULL,
+  `creneau_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date_reservation` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `reservations`
+--
+
+INSERT INTO `reservations` (`id`, `creneau_id`, `user_id`, `date_reservation`) VALUES
+(1, 1, 3, '2025-06-23 08:31:58'),
+(2, 4, 3, '2025-06-23 12:34:08'),
+(3, 5, 3, '2025-06-23 12:38:56');
 
 -- --------------------------------------------------------
 
@@ -183,6 +184,14 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`message_id`);
 
 --
+-- Index pour la table `reservations`
+--
+ALTER TABLE `reservations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_reservation` (`creneau_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Index pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
@@ -212,10 +221,27 @@ ALTER TABLE `messages`
   MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT pour la table `reservations`
+--
+ALTER TABLE `reservations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `reservations`
+--
+ALTER TABLE `reservations`
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`creneau_id`) REFERENCES `creneaux` (`id`),
+  ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `utilisateurs` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

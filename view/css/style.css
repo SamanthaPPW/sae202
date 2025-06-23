@@ -6,6 +6,7 @@ body {
     color : white;
 }
 
+
 @media all and (max-width:480px){
     .topnav {
         display: grid;
@@ -168,6 +169,7 @@ body {
         font-size: 12px;
         flex-shrink: 0;
     }
+  }
     
     .connexion a {
         color: #fff !important;
@@ -185,7 +187,7 @@ body {
     .contenu{
         color: white;
     }
-}
+
 
 /* Breakpoint pour les grands écrans */
 @media all and (min-width: 769px){
