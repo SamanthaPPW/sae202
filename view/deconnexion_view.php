@@ -95,14 +95,6 @@
             font-size: 1.1em;
         }
 
-        .btn-confirm::before {
-            content: '🚪';
-        }
-
-        .btn-cancel::before {
-            content: '↩️';
-        }
-
         @media (max-width: 480px) {
             .button-group {
                 flex-direction: column;

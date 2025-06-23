@@ -222,10 +222,6 @@
             content: '💬';
         }
 
-        .btn-logout::before {
-            content: '🚪';
-        }
-
         .admin-panel {
             background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 20%, #d97706 100%);
             padding: 25px;
