@@ -6,7 +6,7 @@ echo "Mail envoyé ?";
 echo"mAIL";
 echo"ALLEZ";
 echo"ok je suis definitivement bete :(";
-
+?>
 
 
     <h1>Inscription</h1>

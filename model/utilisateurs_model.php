@@ -32,13 +32,21 @@ function getAdminUser() {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function createUser(string $nom, string $prenom, string $email, string $telephone, string $password): bool {
+function createUser($nom, $prenom, $email, $telephone, $password) {
     global $pdo;
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-    $token = bin2hex(random_bytes(32)); // token 64 caractères hex
 
-    $stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, telephone, mot_de_passe, is_confirmed, confirmation_token) VALUES (?, ?, ?, ?, ?, 0, ?)");
-    return $stmt->execute([$nom, $prenom, $email, $telephone, $hash, $token]) ? $token : false;
+    $token = bin2hex(random_bytes(16)); // Génère un token aléatoire
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO utilisateurs (nom, prenom, email, telephone, mot_de_passe, confirmation_token, is_confirmed) VALUES (?, ?, ?, ?, ?, ?, 0)";
+    $stmt = $pdo->prepare($sql);
+    $result = $stmt->execute([$nom, $prenom, $email, $telephone, $hash, $token]);
+
+    if ($result) {
+        return $token;  // Retourne bien le token à utiliser dans le mail
+    } else {
+        return false;
+    }
 }
 
 function getUserByEmail(string $email) {
