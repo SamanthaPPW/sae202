@@ -8,3 +8,4 @@ sae202_backup.sql
 .env
 *.log
 EXEMPLE_conf.inc.php
+model/db.php

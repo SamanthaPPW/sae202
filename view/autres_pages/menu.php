@@ -13,12 +13,14 @@ if (session_status() === PHP_SESSION_NONE) {
       <a href="/">Accueil</a>
       <a href="/concept">Concept</a>
       <a href="/infos">Informations</a>
+      
 
       <?php if (isset($_SESSION['id'])) : ?>
         <a href="/profil">Profil</a>
         <a href="/messagerie">Contact</a>
         
         <a href="/commentaire/nouveau">Proposer un commentaire</a>
+        <a href="/reservation">Réserver</a>
 
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
           <a href="/admin">Admin</a>
