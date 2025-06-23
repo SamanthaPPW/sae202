@@ -1,17 +1,17 @@
 <?php
+session_start();
 require_once __DIR__ . '/../model/reservation_model.php';
+require_once __DIR__ . '/../model/utilisateurs_model.php';
 
 function index() {
-    require 'view/autres_pages/header.php';
-    require 'view/autres_pages/menu.php';
     agenda();
-    require 'view/autres_pages/footer.php';
+    
 }
 
 function agenda() {
   require 'view/autres_pages/header.php';
   require 'view/autres_pages/menu.php';
-
+  require 'view/autres_pages/footer.php';
     if (!isset($_SESSION['id'])) {
         header('Location: /connexion');
         exit;
@@ -19,13 +19,9 @@ function agenda() {
 
     $creneaux = getCreneaux();
     require __DIR__ . '/../view/reservation_view.php';
-
-    require 'view/autres_pages/footer.php';
 }
 
 function reserver() {
-    session_start();
-
     if (!isset($_SESSION['id'])) {
         header('Location: /connexion');
         exit;
@@ -43,8 +39,6 @@ function reserver() {
 }
 
 function formulaire_achat() {
-    session_start();
-
     if (!isset($_SESSION['id'])) {
         header('Location: /connexion');
         exit;
@@ -64,8 +58,6 @@ function formulaire_achat() {
 }
 
 function valider() {
-    session_start();
-
     if (!isset($_SESSION['id'])) {
         header('Location: /connexion');
         exit;
@@ -79,16 +71,60 @@ function valider() {
         $nb = (int)$_POST['nombre_participants'];
         $creneau = getCreneauById($creneauId);
         $placesRestantes = 20 - $creneau['nb_reservations'];
+
         if ($nb > $placesRestantes) {
             $_SESSION['message'] = "Pas assez de places disponibles.";
             header('Location: /reservation/formulaire_achat?creneau_id=' . $creneauId);
             exit;
         }
+
         for ($i = 0; $i < $nb; $i++) {
             reserverCreneau($creneauId, $userId);
         }
 
-        $_SESSION['message'] = "Réservation confirmée pour " . htmlspecialchars($_POST['nom']) . " ($nb participant(s)) !";
+        // Envoi des mails
+        $utilisateur = getUserById($userId); 
+        $email = $utilisateur['email'];
+        $prenom = ucfirst($utilisateur['prenom']);
+        $nom = ucfirst($utilisateur['nom']);
+
+        // Mail à l'admin
+        $subject_admin = "Nouvelle réservation - $prenom $nom";
+        $message_admin = "Nom: $nom\nPrénom: $prenom\nEmail: $email\n";
+        $message_admin .= "Créneau: " . date('d/m/Y H:i', strtotime($creneau['date_creneau'])) . "\n";
+        $message_admin .= "Nombre de participants: $nb\n";
+        $headers_admin = "From: $email\r\n";
+        $headers_admin .= "Reply-To: $email\r\n";
+        $headers_admin .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+        $headers_admin .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $email_admin = "mmi24f08@mmi-troyes.fr";
+
+        mail($email_admin, $subject_admin, $message_admin, $headers_admin);
+
+        // Mail de confirmation à l'utilisateur
+        $subject_user = "Confirmation de votre réservation";
+        $message_user = "
+        <html>
+        <head><title>Confirmation de réservation</title></head>
+        <body>
+            <p>Bonjour $prenom $nom,</p>
+            <p>Votre réservation a bien été confirmée :</p>
+            <ul>
+                <li>Créneau : <strong>" . date('d/m/Y H:i', strtotime($creneau['date_creneau'])) . "</strong></li>
+                <li>Nombre de participants : <strong>$nb</strong></li>
+            </ul>
+            <p>Merci pour votre réservation, amusez-vous bien !</p>
+        </body>
+        </html>
+        ";
+        $headers_user = "From: mmi24f08@mmi-troyes.fr\r\n";
+        $headers_user .= "Reply-To: noreply@mmi-troyes.fr\r\n";
+        $headers_user .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+        $headers_user .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+        mail($email, $subject_user, $message_user, $headers_user);
+
+        $_SESSION['message'] = "Réservation confirmée pour $prenom $nom ($nb participant(s)) ! Un email de confirmation a été envoyé.";
         header('Location: /reservation/agenda');
         exit;
     } else {

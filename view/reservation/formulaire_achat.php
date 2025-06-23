@@ -50,3 +50,10 @@ if (!$creneau) {
     <button type="submit">Payer et réserver</button><button type="button" onclick="window.location.href='/reservation/agenda'">Annuler</button>
 </form> 
 </div>
+<?php
+if (mail('mmi24f08@mmi-troyes.fr', 'Test mail', 'Ceci est un test')) {
+    echo "Mail envoyé !";
+} else {
+    echo "Erreur lors de l'envoi.";
+}
+?>
