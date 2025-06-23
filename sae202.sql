@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 23 juin 2025 à 08:30
+-- Généré le : lun. 23 juin 2025 à 12:54
 -- Version du serveur : 10.11.6-MariaDB-0+deb12u1
 -- Version de PHP : 8.2.26
 
@@ -126,6 +126,15 @@ CREATE TABLE `reservations` (
   `date_reservation` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `reservations`
+--
+
+INSERT INTO `reservations` (`id`, `creneau_id`, `user_id`, `date_reservation`) VALUES
+(1, 1, 3, '2025-06-23 08:31:58'),
+(2, 4, 3, '2025-06-23 12:34:08'),
+(3, 5, 3, '2025-06-23 12:38:56');
+
 -- --------------------------------------------------------
 
 --
@@ -215,7 +224,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
