@@ -28,8 +28,9 @@ function nouveau_message() {
         exit;
     }
     
-    $users = getUsers();
-    require('view/autres_pages/header.php');
+    $admin = getAdminUser();
+    $users = $admin ? [$admin] : [];
+        require('view/autres_pages/header.php');
     require('view/autres_pages/menu.php');
     require('view/messagerie/nouveau_message.php');
     require('view/autres_pages/footer.php');
@@ -45,6 +46,12 @@ function envoyer_message() {
     
     $expediteur = $_SESSION['id'];
     $destinataire = $_POST['message_destinataire_id'];
+    $admin = getAdminUser();
+    if (!$admin || $destinataire != $admin['id']) {
+        $_SESSION['error'] = "Vous ne pouvez envoyer un message qu'à l'administrateur.";
+        header('Location: /messagerie/nouveau');
+        exit;
+    }
     $sujet = $_POST['message_sujet'];
     $message = $_POST['message_text'];
     

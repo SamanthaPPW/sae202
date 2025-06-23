@@ -2,6 +2,7 @@
 require_once(__DIR__ . '/../conf/conf.inc.php');
 
 try {
+    global $pdo;
     $pdo = new PDO(
         'mysql:host=' . HOST . ';dbname=' . DBNAME . ';charset=utf8',
         USER,

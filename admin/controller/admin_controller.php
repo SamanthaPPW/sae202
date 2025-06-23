@@ -72,7 +72,6 @@ function handleUser() {
 
         if (empty($errors)) {
             $hashedPassword = password_hash($mot_de_passe, PASSWORD_DEFAULT);
-            // CHANGEMENT ICI : addUser() -> insertUser()
             $result = insertUser([
                 'nom' => $nom,
                 'prenom' => $prenom,

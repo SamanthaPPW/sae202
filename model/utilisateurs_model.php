@@ -1,6 +1,9 @@
 <?php
+if (!file_exists(__DIR__ . '/db.php')) {
+    die('Fichier db.php introuvable');
+}
 require_once(__DIR__ . '/db.php');  
-
+var_dump($pdo);
 function getUserById($id) {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE id = ?");
@@ -22,6 +25,15 @@ function emailExists(string $email): bool {
     $stmt->execute([$email]);
     return $stmt->fetchColumn() > 0;
 }
+
+function getAdminUser() {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE role = 'admin' LIMIT 1");
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+
 
 //function verif_utilisateur($email) {
 //    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASSWORD);
@@ -56,3 +68,4 @@ function getUserByEmail(string $email) {
     $stmt->execute([$email]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
