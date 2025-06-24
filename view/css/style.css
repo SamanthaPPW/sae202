@@ -1,9 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
     background-color:#121321 !important;
-    color : white;
+    font-family: DM Sans, sans-serif;
+    font-variant: semibold;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color : #F5F5F5
+}
+
+h1, h2, h3{
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 20px;
+    color: #F5F5F5
 }
 
 
@@ -521,4 +537,56 @@ section {
 }
 .rounded {
     border-radius: 0.25rem!important;
+}
+
+.info section {
+	background-color: #282A45;
+	height: 690px;
+	width: 576px;
+	margin: 90px -15px;
+}
+
+.info h1{
+    display: flex;
+    justify-content: center;    
+    position: relative;
+    top : -40px;
+}
+
+.info p{
+    margin-left : 50px;
+}
+
+.info #adr{
+    margin : 0 85px 50px;
+}
+.info li{
+    margin: auto 85px 5px;
+    list-style-type: none;
+}
+
+.info h3 {
+    font-size : 20px;
+    margin-left : 10px;
+}
+
+.info iframe{
+    display:block;
+    width:422px;
+    height : 308px;
+    margin: 0 auto;
+    filter:greyscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+.info #mail img{
+    width: 60px;
+    height: 43px;
+    margin-right: 10px;
+}
+.info #tel img{
+    width: 44.74px;
+    height: 48.25px;
+    margin-right: 10px;
+    rotate: 6.49deg;
 }
