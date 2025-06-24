@@ -2,7 +2,6 @@
 require_once('autres_pages/menu.php');
 require_once('autres_pages/header.php');
 ?>
-<link rel="stylesheet" href="accueil_view.css">
 
 <div class="hero">
      <img src="https://placehold.co/1920x685" id="hero-pc" alt="Hero Image">
