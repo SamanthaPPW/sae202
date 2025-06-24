@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Menu responsive
   function myFunction() {
       var x = document.getElementById("liens");
       if (x.classList.contains('show')) {
@@ -26,5 +24,5 @@ document.addEventListener('DOMContentLoaded', function () {
       calculerPrix();
       select.addEventListener('change', calculerPrix);
   }
-});
+
 

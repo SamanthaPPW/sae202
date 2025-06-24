@@ -1,14 +1,5 @@
 <div class="contenu">
 
-<?php
-mail("mmi24f08@mmi-troyes.fr", "Test", "Ceci est un test", "From: mmi24f08@mmi-troyes.fr");
-echo "Mail envoyé ?";
-echo"mAIL";
-echo"ALLEZ";
-echo"ok je suis definitivement bete :(";
-?>
-
-
     <h1>Inscription</h1>
     <form method="post" action="/connexion/validation_inscription">
         <label for="nom">Nom :</label>
