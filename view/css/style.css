@@ -14,6 +14,16 @@ body {
     color : #F5F5F5
 }
 
+a{
+    font-family: DM Sans, sans-serif;
+    font-variant: semibold;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color : #F5F5F5 !important;
+
+}
+
 h1, h2, h3{
     font-family: 'Cinzel', serif;
     font-weight: 600;
@@ -543,7 +553,8 @@ section {
 	background-color: #282A45;
 	height: 690px;
 	width: 576px;
-	margin: 90px -15px;
+	margin: 100px 0px;
+    
 }
 
 .info h1{
@@ -579,14 +590,157 @@ section {
     -webkit-filter: grayscale(100%);
 }
 
+.info  #contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, (300px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    margin : 0 auto;
+    height: 440px;
+    margin-bottom: 142px;
+}
+
 .info #mail img{
     width: 60px;
     height: 43px;
-    margin-right: 10px;
+    margin: 0 30px;
 }
 .info #tel img{
     width: 44.74px;
     height: 48.25px;
-    margin-right: 10px;
-    rotate: 6.49deg;
+    margin: 0 30px;
+    rotate: -6.49deg;
 }
+.info #tel{
+    margin-top : 25px;
+}
+.info #mail a{
+    margin-left : 38px
+}
+.info #tel a{
+    margin-left : 50px
+}
+.info a{
+    text-decoration: none;
+}
+#PCOnly {
+    display: none;
+}
+
+@media all and (min-width:577px){
+    #PCOnly {
+        display: block;
+    }
+    .info section {
+        width: 85.78%;
+        height: auto;
+        margin: 220px auto;
+       
+    }
+
+    .info #prevoir-section{
+        height: 540px;
+        margin-top: -160px
+    }
+    .info h1{
+        position: relative;
+        top : -60px;
+    }
+    .info p{
+        text-align: center;
+    }
+    .info #adr{
+        margin : 0 85px 50px;
+    }
+    .info li{
+        margin: auto 85px 5px;
+        list-style-type: none;
+    }
+    
+    .info #loc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-wrap: wrap; 
+    
+}
+
+.info #loc img,
+.info #loc iframe {
+    max-width: 454px;
+    max-height: 280px;
+    flex: 0 1 auto; 
+    margin: 0 auto; 
+    
+    
+}
+}
+@media (min-width: 769px) {
+  .prevoir-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* contenu à gauche, h1 à droite */
+    align-items: center;           /* centre verticalement tous les items */
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  #prevoir {
+      
+    grid-column: 2;   
+    text-align: right;
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 0;                /* enlève les marges par défaut */
+    align-self: center; 
+     position: relative;
+      top : 110%;
+    
+    }
+
+  .prevoir-content {
+    grid-column: 1;
+      margin-top : -200px;
+      
+  }
+    .info #contact{
+        margin-top:-120px;
+        display : grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+
+    .info #contact h1{
+        grid-column: 1;
+        position: relative;
+        top: 40%;
+    }
+    .info .contact-infos{
+        grid-column: 2;
+        display: flex;
+        flex-direction: row; 
+    align-items: center;
+    justify-content: flex-start; 
+    margin-left : -50px;
+    }
+
+    .info #mail a{
+        margin :-50px;
+        position: relative;
+        top: 84px;
+    }
+    
+    .info #tel a{
+        margin : -119px;
+        position: relative;
+        top: 109px;
+        left : 10px;
+    }
+    
+    .info #tel img{
+        position: relative;
+        top : -15px;
+    }
+}
+
