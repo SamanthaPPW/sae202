@@ -1,6 +1,6 @@
 
 
-<link rel="stylesheet" href="concept_view.css">
+
 
 <?php //A retirer plus tard
 require_once('autres_pages/menu.php');
