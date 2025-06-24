@@ -590,3 +590,342 @@ section {
     margin-right: 10px;
     rotate: 6.49deg;
 }
+
+
+/* PAGE CONCEPT */
+
+
+.contenu_concept {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .concepttitre {
+    font-size: 24px;
+  }
+  .concepttxt {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  #murderparty, #pourquoi, #comment {
+    background: #282A45;
+    border-radius: 0;
+    width: 100vw;
+    position: relative;
+    margin-bottom: 100px;
+  
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 16px 0; 
+    display: flex;
+  }
+  
+  #murderparty {
+    margin-top: 100px;
+    height: 760px;
+  }
+  #murderparty .section-flex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  #murderparty .section-flex-left {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  #murderparty .section-flex-right {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  #pourquoi {
+    height: 720px;
+  }
+  #pourquoi .section-flex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  #pourquoi .section-flex-left {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  #pourquoi .section-flex-right {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  
+  #comment {
+    height: 680px;
+  }
+  
+  .section-inner {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .concepttitre {
+    font-size: 1.4em;
+    margin-bottom: 12px;
+    font-weight: bold;
+    text-align: left;
+    color: #F5F5F5;
+  }
+  
+  .concepttxt {
+    font-size: 1em;
+    margin-bottom: 8px;
+    text-align: left;
+    color: #F5F5F5;
+  }
+  
+  
+  
+  #comment .ligne_concept img {
+    width: 78px;
+    height: 78px;
+    border-radius: 12px;
+    background: #F5F5F5;
+  }
+  
+  .img-section {
+    display: block;
+    margin: 24px auto 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .section-flex {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .section-flex-left,
+  .section-flex-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .section-flex-left {
+    width: 384px;
+  }
+  
+  .contenu_concept {
+    padding: 0;
+  }
+  #murderparty, #pourquoi, #comment {
+    padding: 16px 0;
+  }
+  .section-inner {
+    padding: 0 12px;
+  }
+  .concepttitre, .concepttxt {
+    text-align: left;
+    margin-bottom: 8px;
+    color: #F5F5F5;
+  }
+  
+  #comment_ligne{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+  }
+  #comment .section-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+  }
+  #comment .ligne_concept {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 356px;
+  }
+  .img-section {
+    display: block;
+  }
+  
+  /* --- DESKTOP STYLES --- */
+  @media (min-width: 577px) {
+    #murderparty{
+      margin-top: 168px;
+      margin-bottom: 84px;
+    }
+    #pourquoi, #comment{
+      margin-bottom: 84px;
+    }
+    .concepttitre, .concepttxt{
+      line-height: 28px;
+    }
+    .contenu_concept{
+      max-width: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #murderparty, #pourquoi, #comment{
+      width: 1350px;
+  
+      position: static;
+      left: auto;
+      right: auto;
+      margin-left: 0;
+      margin-right: 0;
+    }
+      
+    #pourquoi .section-inner, #comment .section-inner {
+      padding: 0 32px;
+    }
+    
+    #murderparty, #pourquoi {
+      height: 448px;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #murderparty .section-inner, #pourquoi .section-inner {
+      width: 1350px;
+      max-width: 1350px;
+      height: 100%;
+      padding: 0;
+    }
+  
+    #murderparty .section-flex {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; 
+      gap: 0;
+      height: 100%;
+      width: 100%;
+    }
+  
+    #pourquoi .section-flex {
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center; 
+      gap: 0;
+      height: 100%;
+      width: 100%;
+    }
+  
+    #murderparty .section-flex-left,
+    #murderparty .section-flex-right,
+    #pourquoi .section-flex-left,
+    #pourquoi .section-flex-right {
+      flex-basis: 50%;
+      flex-grow: 0;
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .section-flex-left{
+      height: 90%!important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around!important;
+    }
+  
+    #murderparty .section-flex-left,
+    #pourquoi .section-flex-left {
+      flex-direction: column;
+    }
+  
+    #murderparty .concepttitre,
+    #pourquoi .concepttitre {
+      text-align: center;
+      width: 100%;
+    }
+  
+    #murderparty .concepttxt,
+    #pourquoi .concepttxt {
+      width: 100%;
+      text-align: left;
+      line-height: 28px;
+      font-size: 16px;
+    }
+  
+  
+    #comment {
+      height: 448px;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #comment .section-inner {
+      width: 1350px;
+      max-width: 1350px;
+      height: 100%;
+      padding: 0;
+    }
+    
+    #comment .section-flex {
+      flex-direction: row;
+      height: 100%;
+      width: 100%;
+      gap: 0;
+    }
+  
+    #comment #comment_titre,
+    #comment #comment_ligne {
+      flex-basis: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #comment #comment_ligne {
+      flex-direction: column;
+      gap: 20px; 
+    }
+  
+    #comment .concepttitre {
+      text-align: center;
+    }
+    .concepttitre{
+      font-size: 32px;
+      line-height: 28px;
+    }
+    .concepttxt {
+      max-width: 478px;
+      margin: 0 auto;
+    }
+  }
+  
+  
+  
