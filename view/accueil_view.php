@@ -11,10 +11,10 @@ require_once('autres_pages/header.php');
          <div class="hero-info-bar">
             <div class="info-separator">
              <span class="info-item">Durée:</span>
-             <span class="info-item">2H30M</span></div>
+             <span class="info-item">1H15M</span></div>
              <div class="info-separator">
              <span class="info-item">Nombre de participants: </span>
-            <span class="info-item">De 3 à 8 joueurs</span></div>
+            <span class="info-item">De 6 à 20</span></div>
              <div class="info-separator">
              <span class="info-item">Prix:</span>
              <span class="info-item">39€</span></div>

@@ -1195,8 +1195,25 @@ body {
     }
 }
 
+.info section {
+	background-color: #282A45;
+	height: 580px;
+	width: 576px;
+	margin: 100px -16px;
+    
+}
+
+.info h1{
+    display: flex;
+    justify-content: center;    
+    position: relative;
+    top : 20px;
+}
+
 .info p{
     margin-left : 50px;
+    position: relative;
+    top: 20px;
 }
 
 .info #adr{
@@ -1226,9 +1243,9 @@ body {
     grid-template-columns: repeat(auto-fit, (300px, 1fr));
     gap: 40px;
     justify-content: center;
-    margin : 0 auto;
+    margin : 0 auto 142px -16px;
     height: 440px;
-    margin-bottom: 142px;
+
 }
 
 .info #mail img{
@@ -1258,30 +1275,36 @@ body {
     display: none;
 }
 
+.info .prevoir-content{
+    margin-top : 30px;
+}
+
 @media all and (min-width:577px){
     #PCOnly {
         display: block;
     }
     .info section {
         width: 85.78%;
-        height: auto;
+        height: 600px;
         margin: 220px auto;
        
     }
 
     .info #prevoir-section{
-        height: 540px;
+        height: 490px;
         margin-top: -160px
     }
     .info h1{
         position: relative;
-        top : -60px;
+        top : 60px;
     }
     .info p{
         text-align: center;
     }
     .info #adr{
         margin : 0 85px 50px;
+        position: relative;
+        top : 60px;
     }
     .info li{
         margin: auto 85px 5px;
@@ -1295,6 +1318,8 @@ body {
     align-items: center;
     margin: 0 auto;
     flex-wrap: wrap; 
+    position:relative;
+    top: 60px;
     
 }
 
@@ -1311,8 +1336,8 @@ body {
 @media (min-width: 769px) {
   .prevoir-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* contenu à gauche, h1 à droite */
-    align-items: center;           /* centre verticalement tous les items */
+    grid-template-columns: 2fr 1fr;
+    align-items: center;     
     gap: 40px;
     padding: 0 20px;
   }
@@ -1323,22 +1348,23 @@ body {
     text-align: right;
     font-size: 32px;
     line-height: 1.2;
-    margin: 0;                /* enlève les marges par défaut */
+    margin: 0;               
     align-self: center; 
      position: relative;
-      top : 110%;
+      top : 500%;
     
     }
 
   .prevoir-content {
     grid-column: 1;
-      margin-top : -200px;
+      margin-top : -60px;
       
   }
     .info #contact{
         margin-top:-120px;
         display : grid;
         grid-template-columns: 1fr 1fr;
+        height : 364px;
         
     }
 
@@ -1365,13 +1391,13 @@ body {
     .info #tel a{
         margin : -119px;
         position: relative;
-        top: 109px;
+        top: 94px;
         left : 10px;
     }
     
     .info #tel img{
         position: relative;
-        top : -15px;
+        top : -32px;
     }
 }
 
