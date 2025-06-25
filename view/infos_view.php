@@ -1,3 +1,7 @@
+<img src="view/assets/triangle_info_mobile.svg" alt="" id="info_triangle_mobile">
+<img src="view/assets/triangle_info_pc.svg" alt="" id="info_triangle_pc">
+
+
 <div class="contenu info">
 
   <section>

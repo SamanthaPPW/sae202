@@ -424,7 +424,16 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 
 }
+#info_triangle_mobile{
+  position: absolute;
+  top: 100px;
+  z-index: -10;
+}
 
+#info_triangle_pc{
+  display: none;
+
+}
 
 
 
@@ -446,6 +455,16 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     display: block;
     top: 200px;
+  }
+  #info_triangle_mobile{
+    display: none;
+
+  }
+  #info_triangle_pc{
+    position: absolute;
+    display: block;
+    top: 300px;
+    z-index: -10;
   }
 }
 
