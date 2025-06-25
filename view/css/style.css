@@ -1840,4 +1840,13 @@ body {
       padding: 8px;
       font-size: 12px;
   }
+
+}
+  .mentions{
+  padding: 50px;
+  background :#121321;  
+    
+  }
+.mention h1, .mentions h2{
+    padding: 40px;
 }
