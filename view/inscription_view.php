@@ -1,6 +1,6 @@
 <div class="grid-inscription">
     <div class="img-inscription">
-        <img src="/view/assets/800x924 1.png" alt="Image d'inscription">
+        <img src="/view/assets/800x924.png" alt="Image d'inscription">
     </div>
     <div class="contenu">
         <h1>Inscription</h1>

@@ -1,4 +1,9 @@
-<div class="contenu">
+
+<div class="grid-inscription">
+    <div class="img-inscription">
+        <img src="/view/assets/800x924.png" alt="Image d'inscription">
+    </div>
+    <div class="contenu">
     <h1>Connexion</h1>
     <form method="post" action="/connexion/verif_connexion">
         <label for="email">Email:</label>
@@ -25,4 +30,5 @@ if (isset($_GET['success']) && $_GET['success'] === 'account_confirmed') {
 }
 ?>
     <p>Pas encore inscrit ? <a href="/connexion/inscription">Inscrivez-vous ici</a>.</p>
+</div>
 </div>

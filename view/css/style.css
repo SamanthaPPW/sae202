@@ -466,6 +466,8 @@ h1, h2, h3, h4, h5, h6 {
     top: 300px;
     z-index: -10;
   }
+
+  
 }
 
 
@@ -475,9 +477,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-body {
 
-  }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cinzel', serif;
@@ -1841,6 +1841,61 @@ body {
       font-size: 12px;
   }
 
+  .grid-inscription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .img-inscription {
+    display: none !important;
+  }
+
+  .contenu {
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contenu h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 20px;
+  }
+
+  form {
+    gap: 16px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .checkbox-container {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .contenu p {
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
 }
   .mentions{
   padding: 50px;
@@ -1849,4 +1904,127 @@ body {
   }
 .mention h1, .mentions h2{
     padding: 40px;
+}
+
+/*PAGE INSCRIPTION*/
+
+
+.grid-inscription {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    padding: 40px;
+    gap: 20px;
+    background-color: #0e0e1a;
+}
+
+/* Image */
+.img-inscription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-inscription img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Formulaire */
+.contenu {
+    background-color: #1a1a3a;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.contenu h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background-color: #ccc;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    color: #000;
+}
+
+input::placeholder {
+    color: #444;
+}
+
+input:focus {
+    outline: 2px solid #6a5acd;
+    background-color: #eee;
+}
+
+/* Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+/* Bouton */
+button[type="submit"] {
+    padding: 12px;
+    background-color: #6a5acd;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #5941b3;
+}
+
+/* Liens */
+.contenu p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.contenu a {
+    color: #c5c5ff;
+    text-decoration: none;
+}
+
+.contenu a:hover {
+    text-decoration: underline;
+}
+
+/* Messages */
+.error {
+    color: #ff6b6b;
+    text-align: center;
+}
+
+.success {
+    color: #51cf66;
+    text-align: center;
 }
