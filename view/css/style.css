@@ -402,7 +402,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* PAGE ACCUEIL */
 
 /*triangle*/
 
@@ -415,6 +414,17 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 
 }
+#concept_triangle_mobile{
+  position: absolute;
+  top: 70px;
+  z-index: -10;
+}
+
+#concept_triangle_pc{
+  display: none;
+
+}
+
 
 
 
@@ -428,7 +438,20 @@ h1, h2, h3, h4, h5, h6 {
       display: block;
       top: 880px;
     }
+    #concept_triangle_mobile{
+      display: none;
+
+  }
+  #concept_triangle_pc{
+    position: absolute;
+    display: block;
+    top: 200px;
+  }
 }
+
+
+
+/* PAGE ACCUEIL */
 
 
 

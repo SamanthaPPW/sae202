@@ -6,7 +6,8 @@
 require_once('autres_pages/menu.php');
 require_once('autres_pages/header.php');
 ?>
-
+<img src="view/assets/triangle_concept_mobile.svg" alt="" id="concept_triangle_mobile">
+<img src="view/assets/triangle_concept_pc.svg" alt="" id="concept_triangle_pc">
 <div class="contenu_concept">
     <div  id="murderparty">
         <div class="section-inner">
