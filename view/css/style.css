@@ -1744,3 +1744,112 @@ body {
   align-items: center;
 }
 
+/* Tableau de messagerie */
+.messagerie table {
+    width: 1074px;
+    height: 635px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #B2B2B2;
+    margin: 0 auto;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.messagerie thead {
+    width: 1074px;
+    height: 63px;
+    flex-shrink: 0;
+    background: #D9D9D9;
+}
+
+.messagerie tbody tr:nth-child(odd) {
+    width: 1074px;
+    height: 63px;
+    flex-shrink: 0;
+    background: #D9D9D9;
+}
+
+.messagerie tbody tr:nth-child(even) {
+    width: 1074px;
+    height: 63px;
+    flex-shrink: 0;
+    background: #9D9D9D;
+}
+
+.messagerie th {
+    padding: 20px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #838383;
+    width: 1010px;
+    height: 1px;
+    background: #838383;
+}
+
+.messagerie td {
+    padding: 20px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.messagerie tbody tr:first-child {
+    border-top: 1px solid #838383;
+}
+
+.messagerie a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.messagerie a:hover {
+    background-color: #838383;
+    color: white;
+}
+
+/* Centrage du conteneur du tableau */
+.messagerie .table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Responsive pour le tableau */
+@media (max-width: 1200px) {
+    .messagerie table {
+        width: 90%;
+        max-width: 1074px;
+    }
+    
+    .messagerie thead,
+    .messagerie tbody tr:nth-child(odd),
+    .messagerie tbody tr:nth-child(even) {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .messagerie table {
+        width: 95%;
+        font-size: 14px;
+    }
+    
+    .messagerie th,
+    .messagerie td {
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+}
+

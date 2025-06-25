@@ -1,16 +1,64 @@
-<form action="index.php?action=envoyerMessage" method="post">
-  <div class="form-group">
-    <label for="message">Message à l'administrateur :</label>
-    <textarea name="message" class="form-control" id="message" required></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
-</form>
+<div class="contenu messagerie">
+<?php if (isset($_SESSION['message'])): ?>
+  <p style="color: green; font-weight: bold;"><?= $_SESSION['message'] ?></p>
+  <?php unset($_SESSION['message']); ?>
+<?php endif; ?>
 
-<hr>
+<h1>Messagerie</h1>
+<a href="/messagerie/nouveau_message">Envoyer un nouveau message</a>
 
-<h5>Vos anciens messages</h5>
-<ul class="list-group">
-  <?php foreach ($messages as $msg): ?>
-    <li class="list-group-item"><?= htmlspecialchars($msg['contenu']) ?> <br><small><?= $msg['date_envoi'] ?></small></li>
-  <?php endforeach; ?>
-</ul>
+<!-- Tableau des messages reçus -->
+<h2>Messages reçus</h2>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Expéditeur</th>
+                <th>Sujet</th>
+                <th>Date</th>
+                <th>Afficher</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($messagesR as $message): ?>
+                <tr>
+                    <td><?php echo $message['prenom'] . ' ' . $message['nom']; ?></td>
+                    <td><?= htmlspecialchars($message['message_sujet']) ?></td>
+                    <td><?= htmlspecialchars($message['message_date_envoi']) ?></td>
+                    <td><a href="/messagerie/afficher_message?id=<?= $message['message_id'] ?>">Afficher</a></td>
+                    <td><a href="/messagerie/supprimer_message?id=<?= $message['message_id'] ?>">Supprimer</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<section>
+<h2>Messages envoyés</h2>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Destinataire</th>
+                <th>Sujet</th>
+                <th>Date</th>
+                <th>Afficher</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($messagesE as $message): ?>
+                <tr>
+                    <td><?php echo $message['prenom'] . ' ' . $message['nom']; ?></td>
+                    <td><?= htmlspecialchars($message['message_sujet']) ?></td>
+                    <td><?= htmlspecialchars($message['message_date_envoi']) ?></td>
+                    <td><a href="/messagerie/afficher_message?id=<?= $message['message_id'] ?>">Afficher</a></td>
+                    <td><a href="/messagerie/supprimer_message?id=<?= $message['message_id'] ?>">Supprimer</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+</section>
+</div>
