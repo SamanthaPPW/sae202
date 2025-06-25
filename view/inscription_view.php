@@ -6,8 +6,8 @@
         <h1>Inscription</h1>
         <form method="post" action="/connexion/validation_inscription">
             <input type="text" id="nom" name="nom" placeholder="Nom" required>
-            <input type="text" id="prenom" name="prenom" placeholder="Adresse mail" required>
-            <input type="email" id="email" name="email" placeholder="Mot de Passe" required>
+            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+            <input type="email" id="email" name="email" placeholder="Adresse Email" required>
             <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
             <div class="checkbox-container">
                 <input type="checkbox" id="conditions" name="conditions" required>
