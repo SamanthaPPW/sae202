@@ -2,6 +2,11 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+$_SESSION['role']= 'admin';
+$_SESSION['id'] = 1; // Simuler un utilisateur connecté pour l'exemple
+$_SESSION['nom'] = 'John Doe'; // Simuler un nom d'utilisateur pour l'exemple
+
+
 ?>
 <header>
     <div class="topnav">

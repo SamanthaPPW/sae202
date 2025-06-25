@@ -1336,9 +1336,8 @@ body {
 @media (min-width: 769px) {
   .prevoir-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     align-items: center;     
-    gap: 40px;
     padding: 0 20px;
   }
 
@@ -1351,13 +1350,16 @@ body {
     margin: 0;               
     align-self: center; 
      position: relative;
-      top : 500%;
+      top : 280%;
     
     }
 
   .prevoir-content {
     grid-column: 1;
-      margin-top : -60px;
+      position: relative;
+      top : -90px;
+      margin-left : -10px;
+      text-align: start;
       
   }
     .info #contact{
@@ -1365,6 +1367,7 @@ body {
         display : grid;
         grid-template-columns: 1fr 1fr;
         height : 364px;
+        margin-left: auto;
         
     }
 
@@ -1372,6 +1375,7 @@ body {
         grid-column: 1;
         position: relative;
         top: 40%;
+        
     }
     .info .contact-infos{
         grid-column: 2;
@@ -1686,5 +1690,57 @@ body {
     .profile-name {
         font-size: 1.8em;
     }
+}
+
+.messagerie section{
+  width : 1346px;
+  height:934px;
+  flex-shrink: 0;
+  background: #282A45;
+  margin : 50px auto;
+    padding : 50px;
+}
+
+.messagerie label{
+  display :none;
+}
+.messagerie .rect1{
+  width :1074px;
+  height:66px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #B2B2B2;
+  margin :30px auto;
+  color : white;
+}
+.messagerie .rect2{
+  width :1074px;
+  height:392px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #B2B2B2;
+  margin :30px auto;
+  color : white;
+}
+
+.messagerie #env{
+  padding : 10px;
+  color : white;
+  background: #282A45;
+  border-radius: 10px;
+  margin-top : 15px;
+
+  
+}
+
+.messagerie #env:hover{
+  background: #B2B2B2;
+  color : black;
+}
+
+.messagerie form{
+  display : flex;
+  flex-direction: column;
+  align-items: center;
 }
 
