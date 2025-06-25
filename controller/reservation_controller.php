@@ -11,7 +11,6 @@ function index() {
 function agenda() {
   require 'view/autres_pages/header.php';
   require 'view/autres_pages/menu.php';
-  require 'view/autres_pages/footer.php';
     if (!isset($_SESSION['id'])) {
         header('Location: /connexion');
         exit;
@@ -19,6 +18,7 @@ function agenda() {
 
     $creneaux = getCreneaux();
     require __DIR__ . '/../view/reservation_view.php';
+    require 'view/autres_pages/footer.php';
 }
 
 function reserver() {

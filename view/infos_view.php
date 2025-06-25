@@ -7,7 +7,7 @@
     31 Quai des Comtes de Champagne, 10000 Troyes</p>
 
     <div id="loc">
-      <img src="https://placehold.co/454x280" alt="Image de la cité du vitrail" id="PCOnly"> 
+      <a href=https://cite-vitrail.fr/fr><img src="view/assets/citevitrail.jpg" alt="Image de la cité du vitrail" id="PCOnly"></a>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5308.4062187557365!2d4.075657076235787!3d48.29894497126183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee98f725546ecb%3A0xdf3274669dced12e!2sCit%C3%A9%20du%20Vitrail!5e0!3m2!1sfr!2sfr!4v1750689227538!5m2!1sfr!2sfr" 
         style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>

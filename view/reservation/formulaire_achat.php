@@ -37,14 +37,14 @@ if (!$creneau) {
     <select name="nombre_participants" required>
         <?php
         $maxParticipants = 20 - $creneau['nb_reservations']; 
-        $maxParticipants = max($maxParticipants, 1); // au moins 1
-        for ($i = 1; $i <= $maxParticipants; $i++): ?>
+        $maxParticipants = max($maxParticipants, 1); 
+            for ($i = 1; $i <= $maxParticipants; $i++): ?>
             <option value="<?= $i ?>"><?= $i ?></option>
         <?php endfor; ?>
     </select><br>
 
     <p>Le créneau sélectionné est le <?= htmlspecialchars($creneau['date_creneau']) ?>.</p>
-    <p>Le prix est de 39€ par participant, passant à 33€ pour un groupe de 20.</p>
+    <p>Le prix est de 39€ par participant, passant à 33€ pour un groupe de 16.</p>
     <p>Prix total : <span id="prix_total"></span></p>
 
     <button type="submit">Payer et réserver</button><button type="button" onclick="window.location.href='/reservation/agenda'">Annuler</button>

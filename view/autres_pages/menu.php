@@ -2,10 +2,6 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$_SESSION['role']= 'admin';
-$_SESSION['id'] = 1; // Simuler un utilisateur connecté pour l'exemple
-$_SESSION['nom'] = 'John Doe'; // Simuler un nom d'utilisateur pour l'exemple
-
 
 ?>
 <header>
@@ -30,6 +26,7 @@ $_SESSION['nom'] = 'John Doe'; // Simuler un nom d'utilisateur pour l'exemple
                 <div class="connexion">
                   <a href="/profil" class="profile-link">Bienvenue <?= htmlspecialchars($_SESSION['nom'] ?? 'Utilisateur') ?></a>
                   <a href="/connexion/deconnexion" class="logout-link">DÉCONNEXION</a>
+                  <a href="/reservation/agenda" class="reservation-link">RÉSERVATION</a>
                 </div>
             <?php else: ?>
                 <!-- Liens pour utilisateurs non connectés -->
