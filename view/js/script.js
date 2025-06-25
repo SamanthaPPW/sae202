@@ -16,7 +16,7 @@
   if (select && prixTotalElem) {
       function calculerPrix() {
           const nb = parseInt(select.value);
-          let prixUnitaire = nb >= 20 ? prixGroupe : prixParDefaut;
+          let prixUnitaire = nb >= 16 ? prixGroupe : prixParDefaut;
           let total = prixUnitaire * nb;
           prixTotalElem.textContent = total + "€";
       }

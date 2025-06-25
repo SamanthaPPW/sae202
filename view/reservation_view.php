@@ -10,7 +10,6 @@
 <div id='calendar'></div>
 
 <?php
-// Construire un tableau PHP pour les events
 $events = [];
 foreach ($creneaux as $creneau) {
     $events[] = [
