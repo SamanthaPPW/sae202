@@ -1,7 +1,3 @@
-<?php
-require_once('autres_pages/menu.php');
-require_once('autres_pages/header.php');
-?>
 <img src="view/assets/vitrail_accueil_mobile.svg" alt="" id="accueil_triangle_mobile">
 <img src="view/assets/triangle_accueil_pc.svg" alt="" id="accueil_triangle_pc">
 
