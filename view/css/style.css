@@ -411,10 +411,22 @@ h1, h2, h3, h4, h5, h6 {
     top: 730px;
 }
 
+#accueil_triangle_pc{
+    display: none;
+
+}
+
+
+
 @media (min-width: 577px) {
     #accueil_triangle_mobile{
         display: none;
 
+    }
+    #accueil_triangle_pc{
+      position: absolute;
+      display: block;
+      top: 880px;
     }
 }
 
