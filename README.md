@@ -1,3 +1,12 @@
+Les modifications à faire
+
+
+
+
+
+
+
+
 Pour docker :
 
 !!!Correction dans le fichier de conf, il faut remettre ce que j'ai rajouté (la réécriture des chemins)!!!

@@ -2,6 +2,8 @@
 require_once(__DIR__ . '/../model/db.php');
 
 function index(){
+    require __DIR__ . '/../view/autres_pages/header.php';
+    require __DIR__ . '/../view/autres_pages/menu.php';
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
@@ -19,6 +21,7 @@ function index(){
     }
     
     require_once(__DIR__ . '/../view/profil_view.php');
+    require __DIR__ . '/../view/autres_pages/footer.php';
 }
 
 function add(){
